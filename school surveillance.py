@@ -79,6 +79,9 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
-                                                                                                                                                          
+   camera.release()
+cv2.destroyAllWindows()
+
+print("System stopped successfully.")                                                                                                                                                       
                                                                                                                                                                
                                                                                                                                         
