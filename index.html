@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Surveillance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            text-align: center;
+        }
+        header {
+            background: #142d4e;
+            color: white;
+            padding: 22px;
+        }
+        main {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #ccd2dc;
+        }
+        button {
+            background: #1769aa;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+        #result {
+            font-weight: bold;
+            color: #1769aa;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body><header>
+    <h1>School Surveillance System</h1>
+    <p>AI-Based School Safety Demonstration</p>
+</header><main>
+    <div class="card">
+        <h2>Image Monitoring</h2>
+        <p>Upload a sample image to begin.</p>    <input type="file" id="upload" accept="image/*">
+
+    <div>
+        <img id="preview" alt="Uploaded image preview"
+             style="display:none;">
+    </div>
+
+    <button onclick="analyzeImage()">Analyze Image</button>
+
+    <p id="result">Waiting for image...</p>
+</div>
+
+</main><script>
+    const upload = document.getElementById("upload");
+    const preview = document.getElementById("preview");
+    const result = document.getElementById("result");
+
+    upload.addEventListener("change", function () {
+        const file = upload.files[0];
+
+        if (file && file.type.startsWith("image/")) {
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+            result.textContent = "Image uploaded. Ready for analysis.";
+        }
+    });
+
+    function analyzeImage() {
+        if (!upload.files.length) {
+            result.textContent = "Please upload an image first.";
+            return;
+        }
+
+        result.textContent =
+            "Image received. AI detection is not connected yet.";
+    }
+</script></body>
+</html>
